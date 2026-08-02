@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donnievate | Premium UK-Used Laptops in Lagos</title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="Donnievatelogo.jpg">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -93,6 +96,16 @@
         .product-card:hover .product-image {
             transform: scale(1.05);
         }
+
+        /* Pulse animation for deals */
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+        .deal-badge {
+            animation: pulse-border 2s infinite;
+        }
     </style>
 </head>
 <body class="antialiased font-sans selection:bg-gold selection:text-black">
@@ -102,27 +115,25 @@
         <div class="container mx-auto px-6 lg:px-12 relative">
             <div class="flex items-center justify-between h-20">
                 <!-- Logo -->
-                <a href="#" class="flex items-center gap-2">
-                    <span class="font-heading font-bold text-2xl tracking-wide text-white flex items-center">
-                        <span class="text-gold mr-1"><i class="fa-solid fa-laptop-code"></i></span>
+                <a href="#" class="flex items-center gap-3">
+                    <img src="Donnievatelogo.jpg" alt="Donnievate Logo" class="h-10 w-10 object-cover rounded-full border border-gold/50">
+                    <span class="font-heading font-bold text-2xl tracking-wide text-white hidden sm:block">
                         Donnie<span class="text-glow">vate</span>
                     </span>
                 </a>
 
                 <!-- Desktop Nav -->
-                <div class="hidden md:flex items-center space-x-8">
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
                     <a href="#about" class="text-sm font-medium hover:text-gold transition-colors">About</a>
                     <a href="#laptops" class="text-sm font-medium hover:text-gold transition-colors">Laptops</a>
+                    <a href="#deals" class="text-sm font-medium hover:text-gold transition-colors text-gold">Deals <i class="fa-solid fa-fire text-xs"></i></a>
                     <a href="#why-us" class="text-sm font-medium hover:text-gold transition-colors">Why Us</a>
-                    <a href="#location" class="text-sm font-medium hover:text-gold transition-colors">Location</a>
+                    <a href="#shipping" class="text-sm font-medium hover:text-gold transition-colors">Shipping</a>
                 </div>
 
                 <!-- CTA Buttons -->
                 <div class="hidden md:flex items-center space-x-4">
-                    <a href="tel:+2340000000000" class="text-white hover:text-gold transition-colors text-sm font-medium">
-                        <i class="fa-solid fa-phone mr-1"></i> Call
-                    </a>
-                    <a href="https://wa.me/2340000000000" target="_blank" class="bg-gold hover:bg-gold-light text-black px-5 py-2 rounded-full text-sm font-bold transition-all box-glow flex items-center gap-2">
+                    <a href="https://wa.me/2348142293427" target="_blank" class="bg-gold hover:bg-gold-light text-black px-5 py-2 rounded-full text-sm font-bold transition-all box-glow flex items-center gap-2">
                         <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
                     </a>
                 </div>
@@ -141,10 +152,11 @@
             <div class="px-6 pt-2 pb-6 space-y-4 shadow-xl">
                 <a href="#about" class="block text-base font-medium hover:text-gold">About</a>
                 <a href="#laptops" class="block text-base font-medium hover:text-gold">Laptops</a>
+                <a href="#deals" class="block text-base font-medium hover:text-gold text-gold">Deals <i class="fa-solid fa-fire text-xs"></i></a>
                 <a href="#why-us" class="block text-base font-medium hover:text-gold">Why Us</a>
-                <a href="#location" class="block text-base font-medium hover:text-gold">Location</a>
+                <a href="#shipping" class="block text-base font-medium hover:text-gold">Shipping</a>
                 <div class="pt-4 flex flex-col gap-3">
-                    <a href="https://wa.me/2340000000000" class="bg-gold text-black px-4 py-2 rounded-md text-center font-bold flex justify-center items-center gap-2">
+                    <a href="https://wa.me/2348142293427" class="bg-gold text-black px-4 py-2 rounded-md text-center font-bold flex justify-center items-center gap-2">
                         <i class="fa-brands fa-whatsapp text-lg"></i> Chat on WhatsApp
                     </a>
                 </div>
@@ -152,15 +164,18 @@
         </div>
     </nav>
 
-    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
-        <!-- Background accents -->
-        <div class="absolute top-1/4 -left-64 w-96 h-96 bg-gold rounded-full mix-blend-multiply filter blur-[128px] opacity-20"></div>
-        <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gold rounded-full mix-blend-multiply filter blur-[150px] opacity-10"></div>
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-[90vh] flex items-center">
+        <!-- Hero Background -->
+        <div class="absolute inset-0 z-0">
+            <img src="Donnievateshop.jpg" alt="Donnievate Shop Background" class="w-full h-full object-cover object-center opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-r from-dark-900 via-dark-900/90 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-dark-900/50"></div>
+        </div>
         
         <div class="container mx-auto px-6 lg:px-12 relative z-10">
             <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-                <div class="w-full lg:w-1/2 text-center lg:text-left fade-up">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gold/30 bg-gold/10 text-gold text-xs font-semibold uppercase tracking-wider mb-6">
+                <div class="w-full lg:w-3/5 text-center lg:text-left fade-up">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold/30 bg-black/50 backdrop-blur-sm text-gold text-xs font-semibold uppercase tracking-wider mb-6">
                         <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
                         Premium UK-Used Store in Yaba
                     </div>
@@ -168,36 +183,195 @@
                         Quality Laptops.<br>
                         <span class="gold-gradient-text">Real Expertise.</span>
                     </h1>
-                    <p class="text-lg lg:text-xl text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                    <p class="text-lg lg:text-xl text-gray-300 mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
                         UK-Used & Genuine Laptops for Work, Study, and Cybersecurity — Tested and Trusted in Yaba, Lagos. We help you find the exact machine for your needs.
                     </p>
                     <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
                         <a href="#laptops" class="w-full sm:w-auto bg-gold hover:bg-gold-light text-black px-8 py-4 rounded-full font-bold transition-all box-glow text-center">
                             View Laptops
                         </a>
-                        <a href="https://wa.me/2340000000000" class="w-full sm:w-auto bg-transparent border-2 border-white/20 hover:border-gold text-white px-8 py-4 rounded-full font-bold transition-all text-center flex items-center justify-center gap-2 group">
+                        <a href="https://wa.me/2348142293427" class="w-full sm:w-auto bg-dark-900/50 backdrop-blur border-2 border-white/20 hover:border-gold text-white px-8 py-4 rounded-full font-bold transition-all text-center flex items-center justify-center gap-2 group">
                             <i class="fa-brands fa-whatsapp text-xl group-hover:text-gold transition-colors"></i> Chat on WhatsApp
                         </a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="deals" class="py-12 bg-gold/10 border-y border-gold/20 relative overflow-hidden">
+        <div class="absolute -right-20 top-1/2 -translate-y-1/2 text-9xl text-gold/5 opacity-50 font-black rotate-12 pointer-events-none">
+            <i class="fa-solid fa-bolt"></i>
+        </div>
+        <div class="container mx-auto px-6 lg:px-12 relative z-10">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8 bg-dark-900 border border-gold/30 rounded-2xl p-6 lg:p-10 shadow-[0_0_40px_rgba(212,175,55,0.15)] deal-badge fade-up">
+                <div class="flex items-center gap-6">
+                    <div class="w-16 h-16 shrink-0 bg-gold/20 rounded-full flex items-center justify-center border border-gold/40">
+                        <i class="fa-solid fa-fire text-3xl text-gold"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl lg:text-3xl font-heading font-bold text-white mb-2">Fastest Finger Deals 🔥</h2>
+                        <p class="text-gray-400 text-sm lg:text-base">Check our WhatsApp catalog for current flash deals. Limited stock available at unbeatabe prices.</p>
+                    </div>
+                </div>
+                <a href="https://wa.me/c/2348142293427" target="_blank" class="shrink-0 w-full md:w-auto bg-gold hover:bg-gold-light text-black px-8 py-3.5 rounded-xl font-bold transition-all flex items-center justify-center gap-2 group">
+                    View Flash Deals <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="laptops" class="py-24 relative bg-dark-900">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="text-center max-w-3xl mx-auto mb-16 fade-up">
+                <h2 class="text-4xl lg:text-5xl font-heading font-bold mb-4">Featured <span class="text-gold">Laptops</span></h2>
+                <p class="text-gray-400 text-lg">Hand-picked, fully tested machines ready for immediate deployment.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <div class="w-full lg:w-1/2 relative fade-up" style="transition-delay: 200ms;">
-                    <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(212,175,55,0.15)] group">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-                        <img src="1785628940664.jpg" alt="Donnievate Storefront" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
-                        <div class="absolute bottom-6 left-6 right-6 z-20">
-                            <div class="flex items-center gap-3">
-                                <div class="bg-gold/20 backdrop-blur-md p-3 rounded-full border border-gold/30">
-                                    <i class="fa-solid fa-store text-gold text-xl"></i>
-                                </div>
-                                <div>
-                                    <p class="text-white font-bold font-heading text-lg">Physical Store</p>
-                                    <p class="text-gray-300 text-sm">Visit us in Yaba, Lagos</p>
-                                </div>
-                            </div>
+                <!-- Product 1: Dell Latitude 7370 -->
+                <div class="product-card bg-dark-800 rounded-xl overflow-hidden border border-white/10 flex flex-col fade-up">
+                    <div class="h-64 overflow-hidden relative bg-black flex items-center justify-center p-4">
+                        <img src="Delllatitude7370.jpg" alt="Dell Latitude 7370" class="product-image max-h-full max-w-full object-contain">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-heading font-bold text-white mb-3">Dell Latitude 7370</h3>
+                        <ul class="space-y-2 mb-6 text-sm text-gray-400 flex-grow">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-desktop mt-1 text-gold/70 w-4"></i> 13" FHD Display</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-microchip mt-1 text-gold/70 w-4"></i> Intel Core M5 6th Gen</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-memory mt-1 text-gold/70 w-4"></i> 8GB RAM / 256GB SSD</li>
+                            <li class="flex items-start gap-2"><i class="fa-regular fa-keyboard mt-1 text-gold/70 w-4"></i> Backlit Keyboard</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-plug mt-1 text-gold/70 w-4"></i> Includes charger</li>
+                        </ul>
+                        <div class="mt-auto flex items-center justify-between pt-4 border-t border-white/5">
+                            <span class="text-2xl font-bold text-gold">₦225,000</span>
+                            <a href="https://wa.me/2348142293427?text=I'm%20interested%20in%20the%20Dell%20Latitude%207370" target="_blank" class="bg-white/5 hover:bg-gold hover:text-black border border-white/10 hover:border-gold px-4 py-2 rounded-lg font-medium transition-all text-sm flex items-center gap-1.5">
+                                <i class="fa-brands fa-whatsapp"></i> Order
+                            </a>
                         </div>
                     </div>
                 </div>
+
+                <!-- Product 2: Dell Latitude 7480 -->
+                <div class="product-card bg-dark-800 rounded-xl overflow-hidden border border-white/10 flex flex-col fade-up" style="transition-delay: 100ms;">
+                    <div class="h-64 overflow-hidden relative bg-black flex items-center justify-center p-4">
+                        <img src="Delllatitude7480.jpg" alt="Dell Latitude 7480" class="product-image max-h-full max-w-full object-contain">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-heading font-bold text-white mb-3">Dell Latitude 7480</h3>
+                        <ul class="space-y-2 mb-6 text-sm text-gray-400 flex-grow">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-microchip mt-1 text-gold/70 w-4"></i> Intel Core i5-6300U @ 2.4GHz</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-microchip mt-1 text-gold/70 w-4"></i> 6th Gen Processor</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-memory mt-1 text-gold/70 w-4"></i> 8GB RAM / 256GB SSD</li>
+                            <li class="flex items-start gap-2"><i class="fa-regular fa-keyboard mt-1 text-gold/70 w-4"></i> Backlit Keyboard</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-desktop mt-1 text-gold/70 w-4"></i> 14" Display</li>
+                        </ul>
+                        <div class="mt-auto flex items-center justify-between pt-4 border-t border-white/5">
+                            <span class="text-2xl font-bold text-gold">₦260,000</span>
+                            <a href="https://wa.me/2348142293427?text=I'm%20interested%20in%20the%20Dell%20Latitude%207480" target="_blank" class="bg-white/5 hover:bg-gold hover:text-black border border-white/10 hover:border-gold px-4 py-2 rounded-lg font-medium transition-all text-sm flex items-center gap-1.5">
+                                <i class="fa-brands fa-whatsapp"></i> Order
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3: Dell Latitude 5480 -->
+                <div class="product-card bg-dark-800 rounded-xl overflow-hidden border border-white/10 flex flex-col fade-up" style="transition-delay: 200ms;">
+                    <div class="h-64 overflow-hidden relative bg-black flex items-center justify-center p-4">
+                        <img src="Delllatitude5480.jpg" alt="Dell Latitude 5480" class="product-image max-h-full max-w-full object-contain">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-heading font-bold text-white mb-3">Dell Latitude 5480</h3>
+                        <ul class="space-y-2 mb-6 text-sm text-gray-400 flex-grow">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-microchip mt-1 text-gold/70 w-4"></i> Intel Core i5 @ 2.3GHz</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-microchip mt-1 text-gold/70 w-4"></i> 6th Gen Processor</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-memory mt-1 text-gold/70 w-4"></i> 8GB RAM / 256GB SSD</li>
+                            <li class="flex items-start gap-2"><i class="fa-regular fa-keyboard mt-1 text-gold/70 w-4"></i> Backlit Keyboard</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-desktop mt-1 text-gold/70 w-4"></i> 14" Display</li>
+                        </ul>
+                        <div class="mt-auto flex items-center justify-between pt-4 border-t border-white/5">
+                            <span class="text-2xl font-bold text-gold">₦250,000</span>
+                            <a href="https://wa.me/2348142293427?text=I'm%20interested%20in%20the%20Dell%20Latitude%205480" target="_blank" class="bg-white/5 hover:bg-gold hover:text-black border border-white/10 hover:border-gold px-4 py-2 rounded-lg font-medium transition-all text-sm flex items-center gap-1.5">
+                                <i class="fa-brands fa-whatsapp"></i> Order
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4: HP ProBook 640 G2 -->
+                <div class="product-card bg-dark-800 rounded-xl overflow-hidden border border-white/10 flex flex-col fade-up">
+                    <div class="h-64 overflow-hidden relative bg-black flex items-center justify-center p-4">
+                        <img src="Hpprobook640G2.jpg" alt="HP ProBook 640 G2" class="product-image max-h-full max-w-full object-contain">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-heading font-bold text-white mb-3">HP ProBook 640 G2</h3>
+                        <ul class="space-y-2 mb-6 text-sm text-gray-400 flex-grow">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-microchip mt-1 text-gold/70 w-4"></i> Intel Core i5-6200U @ 2.3GHz</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-microchip mt-1 text-gold/70 w-4"></i> 6th Gen Processor</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-memory mt-1 text-gold/70 w-4"></i> 8GB RAM / 256GB SSD</li>
+                            <li class="flex items-start gap-2"><i class="fa-regular fa-keyboard mt-1 text-gold/70 w-4"></i> Backlit Keyboard</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-desktop mt-1 text-gold/70 w-4"></i> 14" Display</li>
+                        </ul>
+                        <div class="mt-auto flex items-center justify-between pt-4 border-t border-white/5">
+                            <span class="text-2xl font-bold text-gold">₦250,000</span>
+                            <a href="https://wa.me/2348142293427?text=I'm%20interested%20in%20the%20HP%20ProBook%20640%20G2" target="_blank" class="bg-white/5 hover:bg-gold hover:text-black border border-white/10 hover:border-gold px-4 py-2 rounded-lg font-medium transition-all text-sm flex items-center gap-1.5">
+                                <i class="fa-brands fa-whatsapp"></i> Order
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5: Dell Latitude 7470 (Non-Touch) -->
+                <div class="product-card bg-dark-800 rounded-xl overflow-hidden border border-white/10 flex flex-col fade-up" style="transition-delay: 100ms;">
+                    <div class="h-64 overflow-hidden relative bg-black flex items-center justify-center p-4">
+                        <img src="Delllatitude7470(NonTouchscreen).jpg" alt="Dell Latitude 7470 Non-Touchscreen" class="product-image max-h-full max-w-full object-contain">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-heading font-bold text-white mb-3">Dell Latitude 7470 <span class="text-sm font-normal text-gray-400 block">(Non-Touchscreen)</span></h3>
+                        <ul class="space-y-2 mb-6 text-sm text-gray-400 flex-grow">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-microchip mt-1 text-gold/70 w-4"></i> Intel Core i7-6600U 6th Gen</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-memory mt-1 text-gold/70 w-4"></i> 8GB RAM / 256GB SSD</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-desktop mt-1 text-gold/70 w-4"></i> 14" HD (1366x768)</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-microchip mt-1 text-gold/70 w-4"></i> Intel HD Graphics 520</li>
+                        </ul>
+                        <div class="mt-auto flex items-center justify-between pt-4 border-t border-white/5">
+                            <span class="text-2xl font-bold text-gold">₦230,000</span>
+                            <a href="https://wa.me/2348142293427?text=I'm%20interested%20in%20the%20Dell%20Latitude%207470%20(Non-Touchscreen)" target="_blank" class="bg-white/5 hover:bg-gold hover:text-black border border-white/10 hover:border-gold px-4 py-2 rounded-lg font-medium transition-all text-sm flex items-center gap-1.5">
+                                <i class="fa-brands fa-whatsapp"></i> Order
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6: Dell Latitude 7470 (Touch) -->
+                <div class="product-card bg-dark-800 rounded-xl overflow-hidden border border-white/10 flex flex-col fade-up" style="transition-delay: 200ms;">
+                    <div class="h-64 overflow-hidden relative bg-black flex items-center justify-center p-4">
+                        <img src="Delllatitude7470Touchscreen.jpg" alt="Dell Latitude 7470 Touchscreen" class="product-image max-h-full max-w-full object-contain">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-heading font-bold text-white mb-3">Dell Latitude 7470 <span class="text-sm font-normal text-gold block">(Touchscreen)</span></h3>
+                        <ul class="space-y-2 mb-6 text-sm text-gray-400 flex-grow">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-microchip mt-1 text-gold/70 w-4"></i> Intel Core i7-6600U 6th Gen</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-memory mt-1 text-gold/70 w-4"></i> 8GB RAM / 256GB SSD</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-hand-pointer mt-1 text-gold/70 w-4"></i> 14" QHD Touchscreen 2560x1440 IPS</li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-microchip mt-1 text-gold/70 w-4"></i> Intel HD Graphics 520</li>
+                        </ul>
+                        <div class="mt-auto flex items-center justify-between pt-4 border-t border-white/5">
+                            <span class="text-2xl font-bold text-gold">₦250,000</span>
+                            <a href="https://wa.me/2348142293427?text=I'm%20interested%20in%20the%20Dell%20Latitude%207470%20(Touchscreen)" target="_blank" class="bg-white/5 hover:bg-gold hover:text-black border border-white/10 hover:border-gold px-4 py-2 rounded-lg font-medium transition-all text-sm flex items-center gap-1.5">
+                                <i class="fa-brands fa-whatsapp"></i> Order
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="mt-16 text-center fade-up">
+                <a href="https://wa.me/c/2348142293427" target="_blank" class="inline-flex items-center gap-3 text-gold hover:text-white transition-colors border-b-2 border-gold hover:border-white pb-1 font-heading text-lg">
+                    See our full inventory on WhatsApp Catalog <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -220,8 +394,12 @@
                     </div>
                 </div>
                 <div class="w-full lg:w-1/2 fade-up relative" style="transition-delay: 200ms;">
-                    <div class="relative rounded-2xl overflow-hidden border border-white/5">
-                        <img src="1785629012478.jpg" alt="Donnievate Premium Laptop Display" class="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity">
+                    <div class="relative rounded-2xl overflow-hidden border border-white/5 shadow-2xl">
+                        <!-- Using a relevant image for About, defaulting to one of the provided or the logo as a placeholder for brand feel -->
+                        <div class="aspect-video bg-dark-900 flex items-center justify-center p-10 relative">
+                             <div class="absolute inset-0 bg-gold/5"></div>
+                             <img src="Donnievatelogo.jpg" alt="Donnievate Brand" class="h-40 w-40 object-cover rounded-full border-4 border-gold shadow-[0_0_50px_rgba(212,175,55,0.3)] relative z-10">
+                        </div>
                         <!-- Decorative elements -->
                         <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-4 border-r-4 border-gold rounded-br-2xl"></div>
                         <div class="absolute -top-4 -left-4 w-24 h-24 border-t-4 border-l-4 border-gold rounded-tl-2xl"></div>
@@ -231,104 +409,219 @@
         </div>
     </section>
 
-    <section id="laptops" class="py-24 relative bg-dark-900">
+    <section id="why-us" class="py-24 bg-black relative border-y border-white/5">
         <div class="container mx-auto px-6 lg:px-12">
             <div class="text-center max-w-3xl mx-auto mb-16 fade-up">
-                <h2 class="text-4xl lg:text-5xl font-heading font-bold mb-4">Featured <span class="text-gold">Laptops</span></h2>
-                <p class="text-gray-400 text-lg">Hand-picked, fully tested machines ready for immediate deployment. Prices are highly competitive.</p>
+                <h2 class="text-4xl lg:text-5xl font-heading font-bold mb-4">Why <span class="text-gold">Donnievate?</span></h2>
+                <p class="text-gray-400 text-lg">We bring transparency and technical expertise to the laptop market.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-dark-900 p-8 rounded-2xl border border-white/5 hover:border-gold/30 transition-colors group fade-up">
+                    <div class="w-14 h-14 bg-gold/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-gold transition-colors">
+                        <i class="fa-solid fa-check-circle text-2xl text-gold group-hover:text-black transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-heading mb-3 text-white">Every Laptop Tested</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Rigorous hardware diagnostics run on every machine before it reaches our shelves. Battery, screen, keyboard, ports — all verified.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-dark-900 p-8 rounded-2xl border border-white/5 hover:border-gold/30 transition-colors group fade-up" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 bg-gold/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-gold transition-colors">
+                        <i class="fa-solid fa-code text-2xl text-gold group-hover:text-black transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-heading mb-3 text-white">Cybersecurity Ready</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Need a machine for Kali Linux, VMware, or VS Code? We know the exact specs required for programming and security tasks.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-dark-900 p-8 rounded-2xl border border-white/5 hover:border-gold/30 transition-colors group fade-up" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 bg-gold/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-gold transition-colors">
+                        <i class="fa-solid fa-comments text-2xl text-gold group-hover:text-black transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-heading mb-3 text-white">Honest Expert Advice</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        No upselling. We listen to your requirements and match you with a laptop that fits both your workload and your budget perfectly.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-dark-900 p-8 rounded-2xl border border-white/5 hover:border-gold/30 transition-colors group fade-up" style="transition-delay: 300ms;">
+                    <div class="w-14 h-14 bg-gold/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-gold transition-colors">
+                        <i class="fa-solid fa-location-dot text-2xl text-gold group-hover:text-black transition-colors"></i>
+                    </div>
+                    <h3 class="text-xl font-bold font-heading mb-3 text-white">Trusted Physical Store</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        We are not just an online page. Visit our premium store in Yaba, Lagos, to see, touch, and test your device before paying.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="shipping" class="py-16 bg-gradient-to-r from-dark-800 to-dark-900 border-b border-white/5">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="flex flex-col md:flex-row items-center justify-center gap-8 text-center md:text-left fade-up">
+                <div class="w-20 h-20 bg-dark-900 rounded-full flex items-center justify-center border border-gold/30 shadow-[0_0_30px_rgba(212,175,55,0.2)] shrink-0">
+                    <i class="fa-solid fa-truck-fast text-3xl text-gold"></i>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-heading font-bold text-white mb-2">Nationwide Shipping Available</h3>
+                    <p class="text-gray-400 text-lg">Can't visit our Yaba store? We ship laptops safely nationwide — <a href="https://wa.me/2348142293427" class="text-gold hover:underline font-medium">order via WhatsApp</a>.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="location" class="py-24 bg-dark-800">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="flex flex-col lg:flex-row gap-12 bg-dark-900 rounded-3xl overflow-hidden border border-white/10 shadow-2xl fade-up">
                 
-                <!-- Product 1 -->
-                <div class="product-card bg-dark-800 rounded-xl overflow-hidden border border-white/10 flex flex-col fade-up">
-                    <div class="h-64 overflow-hidden relative bg-gray-900 flex items-center justify-center p-4">
-                        <img src="1785628989845.jpg" alt="Dell Latitude 5490" class="product-image max-h-full max-w-full object-contain drop-shadow-xl">
-                        <div class="absolute top-4 right-4 bg-black/60 backdrop-blur text-xs font-bold px-3 py-1 rounded-full text-gold border border-gold/30">
-                            Bestseller
+                <!-- Contact Info -->
+                <div class="w-full lg:w-1/3 p-10 lg:p-12 flex flex-col justify-center relative">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gold opacity-5 rounded-bl-full"></div>
+                    
+                    <h2 class="text-3xl font-heading font-bold mb-8">Visit <span class="text-gold">Our Store</span></h2>
+                    
+                    <div class="space-y-8">
+                        <div class="flex items-start gap-4">
+                            <div class="mt-1 w-10 h-10 rounded-full bg-white/5 flex items-center justify-center shrink-0 border border-white/10">
+                                <i class="fa-solid fa-map-pin text-gold"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-1">Address</h4>
+                                <p class="text-gray-400 text-sm leading-relaxed">
+                                    Block 7, Suite 16,<br>
+                                    Sabo Yaba Ultra Modern Market,<br>
+                                    Commercial Avenue, Sabo,<br>
+                                    Yaba, Lagos State.
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-heading font-bold text-white mb-2">Dell Latitude 5490</h3>
-                        <div class="space-y-1 mb-6 text-sm text-gray-400">
-                            <p><i class="fa-solid fa-microchip w-5 text-gray-500"></i> Core i5 8th Gen</p>
-                            <p><i class="fa-solid fa-shield-halved w-5 text-gray-500"></i> Solid build</p>
-                            <p><i class="fa-solid fa-server w-5 text-gray-500"></i> Great for virtual machines</p>
-                        </div>
-                        <div class="mt-auto flex items-center justify-between">
-                            <span class="text-2xl font-bold text-gold">₦290,000</span>
-                            <a href="https://wa.me/2340000000000?text=I'm%20interested%20in%20the%20Dell%20Latitude%205490%20(₦290,000)" class="bg-white/5 hover:bg-gold hover:text-black border border-white/10 hover:border-gold px-4 py-2 rounded-lg font-medium transition-all text-sm">
-                                Buy Now
-                            </a>
+
+                        <div class="flex items-start gap-4">
+                            <div class="mt-1 w-10 h-10 rounded-full bg-white/5 flex items-center justify-center shrink-0 border border-white/10">
+                                <i class="fa-solid fa-clock text-gold"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-1">Store Hours</h4>
+                                <p class="text-gray-400 text-sm">Mon - Sat: 9:00 AM - 6:00 PM</p>
+                                <p class="text-gray-400 text-sm">Sunday: Closed</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 2 -->
-                <div class="product-card bg-dark-800 rounded-xl overflow-hidden border border-white/10 flex flex-col fade-up" style="transition-delay: 100ms;">
-                    <div class="h-64 overflow-hidden relative bg-gray-900 flex items-center justify-center p-4">
-                        <!-- Placeholder using placehold.co to represent Dell 5400 as specific image wasn't guaranteed for this -->
-                        <img src="https://placehold.co/600x400/121212/D4AF37?text=Dell+Latitude+5400" alt="Dell Latitude 5400" class="product-image max-h-full max-w-full object-contain">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-heading font-bold text-white mb-2">Dell Latitude 5400</h3>
-                        <div class="space-y-1 mb-6 text-sm text-gray-400">
-                            <p><i class="fa-solid fa-microchip w-5 text-gray-500"></i> Core i5 8th Gen</p>
-                            <p><i class="fa-solid fa-memory w-5 text-gray-500"></i> Upgradeable RAM</p>
-                            <p><i class="fa-brands fa-linux w-5 text-gray-500"></i> Excellent Linux support</p>
-                        </div>
-                        <div class="mt-auto flex items-center justify-between">
-                            <span class="text-2xl font-bold text-gold">₦300,000</span>
-                            <a href="#" class="bg-white/5 hover:bg-gold hover:text-black border border-white/10 hover:border-gold px-4 py-2 rounded-lg font-medium transition-all text-sm">
-                                Buy Now
-                            </a>
+                <!-- Map Placeholder -->
+                <div class="w-full lg:w-2/3 min-h-[400px] bg-gray-800 relative">
+                    <div class="absolute inset-0 flex items-center justify-center bg-dark-900 border-l border-white/5">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-gold/10 rounded-full flex items-center justify-center mx-auto mb-4 animate-bounce">
+                                <i class="fa-solid fa-location-dot text-3xl text-gold"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2 font-heading">Sabo Yaba, Lagos</h3>
+                            <a href="https://maps.google.com/?q=Sabo+Yaba+Market+Lagos" target="_blank" class="text-sm text-gold hover:underline">Open in Google Maps</a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product 3 -->
-                <div class="product-card bg-dark-800 rounded-xl overflow-hidden border border-white/10 flex flex-col fade-up" style="transition-delay: 200ms;">
-                    <div class="h-64 overflow-hidden relative bg-gray-900 flex items-center justify-center p-4">
-                        <img src="https://placehold.co/600x400/121212/D4AF37?text=Dell+Latitude+7400" alt="Dell Latitude 7400" class="product-image max-h-full max-w-full object-contain">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-heading font-bold text-white mb-2">Dell Latitude 7400</h3>
-                        <div class="space-y-1 mb-6 text-sm text-gray-400">
-                            <p><i class="fa-solid fa-microchip w-5 text-gray-500"></i> Core i5 8th Gen</p>
-                            <p><i class="fa-solid fa-memory w-5 text-gray-500"></i> Upgradeable RAM</p>
-                            <p><i class="fa-solid fa-battery-full w-5 text-gray-500"></i> Great battery life</p>
-                        </div>
-                        <div class="mt-auto flex items-center justify-between">
-                            <span class="text-2xl font-bold text-gold">₦310,000</span>
-                            <a href="#" class="bg-white/5 hover:bg-gold hover:text-black border border-white/10 hover:border-gold px-4 py-2 rounded-lg font-medium transition-all text-sm">
-                                Buy Now
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- Product 4 -->
-                <div class="product-card bg-dark-800 rounded-xl overflow-hidden border border-white/10 flex flex-col fade-up">
-                    <div class="h-64 overflow-hidden relative bg-gray-900 flex items-center justify-center p-4">
-                        <img src="https://placehold.co/600x400/121212/D4AF37?text=Lenovo+ThinkPad+T480" alt="Lenovo ThinkPad T480" class="product-image max-h-full max-w-full object-contain">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <h3 class="text-xl font-heading font-bold text-white mb-2">Lenovo ThinkPad T480</h3>
-                        <div class="space-y-1 mb-6 text-sm text-gray-400">
-                            <p><i class="fa-solid fa-microchip w-5 text-gray-500"></i> Core i5 8th Gen</p>
-                            <p><i class="fa-solid fa-hard-drive w-5 text-gray-500"></i> 512GB SSD</p>
-                            <p><i class="fa-solid fa-plug-circle-bolt w-5 text-gray-500"></i> Hot-swappable battery</p>
-                        </div>
-                        <div class="mt-auto flex items-center justify-between">
-                            <span class="text-2xl font-bold text-gold">₦320,000</span>
-                            <a href="#" class="bg-white/5 hover:bg-gold hover:text-black border border-white/10 hover:border-gold px-4 py-2 rounded-lg font-medium transition-all text-sm">
-                                Buy Now
-                            </a>
-                        </div>
-                    </div>
+    <footer class="bg-black pt-16 pb-8 border-t border-white/10">
+        <div class="container mx-auto px-6 lg:px-12">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+                <div class="text-center md:text-left flex items-center gap-4">
+                     <img src="Donnievatelogo.jpg" alt="Donnievate Logo" class="h-12 w-12 object-cover rounded-full border border-gold/30 grayscale hover:grayscale-0 transition-all">
+                     <div>
+                        <span class="font-heading font-bold text-3xl tracking-wide text-white">
+                            Donnie<span class="text-glow">vate</span>
+                        </span>
+                        <p class="text-gray-500 mt-1 text-sm">Quality Laptops, Real Expertise.</p>
+                     </div>
                 </div>
+                
+                <div class="flex gap-4">
+                    <a href="https://wa.me/2348142293427" target="_blank" title="Chat on WhatsApp" class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#25D366] hover:border-[#25D366] transition-all">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                    </a>
+                    <a href="https://wa.me/c/2348142293427" target="_blank" title="WhatsApp Catalog" class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-gold hover:text-black hover:border-gold transition-all box-glow">
+                        <i class="fa-solid fa-store"></i>
+                    </a>
+                    <a href="https://instagram.com/Donnievate" target="_blank" title="Instagram @Donnievate" class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#E1306C] hover:border-[#E1306C] transition-all">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                     <a href="https://twitter.com/DonnieGodsent" target="_blank" title="X (Twitter) @DonnieGodsent" class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-white transition-all">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                    <a href="https://www.facebook.com/nwachukwu.donatus.14" target="_blank" title="Facebook" class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#1877F2] hover:border-[#1877F2] transition-all">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-600">
+                <p>&copy; 2026 Donnievate Tech Store. All rights reserved.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <span class="text-gray-500">Instagram: <a href="https://instagram.com/Donnievate" class="hover:text-gold transition-colors">@Donnievate</a> & <a href="https://instagram.com/Donnienwachukwu" class="hover:text-gold transition-colors">@Donnienwachukwu</a></span>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-                <!-- Product 5 -->
-                <div class="product-card bg-dark-800 rounded-xl overflow-hidden border border-white/10 flex flex-col fade-up" style="transition-delay: 100ms;">
-                    <div class="h-64 overflow-hidden relative bg-gray-900 flex items-center justify-center p-4">
-                        <img src="https://placehold.
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Navbar scroll effect
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    navbar.classList.add('shadow-lg');
+                } else {
+                    navbar.classList.remove('shadow-lg');
+                }
+            });
+
+            // Mobile menu toggle
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu on link click
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-up').forEach((el) => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
