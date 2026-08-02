@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ellamon Beauty Salon & Spa | Wuye, Abuja</title>
+    <meta name="description" content="Unisex Beauty Salon & Spa — Hair, Nails, Skin & More, in Wuye, Abuja. Your Beauty, Our Craft.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        coral: '#E8827C',
+                        coralLight: '#fbe8e7',
+                        coralHover: '#d66b65',
+                        deepBrown: '#4A2C2A',
+                        cream: '#FDFBF7',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(74, 44, 42, 0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #FDFBF7;
+            color: #4A2C2A;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Fade-in animation classes */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, visibility;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FDFBF7; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #E8827C; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d66b65; 
+        }
+        
+        .whatsapp-float {
+            animation: pulse-ring 2s infinite;
+        }
+        
+        @keyframes pulse-ring {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(232, 130, 124, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(232, 130, 124, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(232, 130, 124, 0); }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-coral selection:text-white">
+
+    <nav class="fixed w-full z-50 bg-cream/90 backdrop-blur-md border-b border-coral/10 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="flex items-center gap-3 group">
+                        <img class="h-12 w-12 rounded-full object-cover shadow-sm border-2 border-transparent group-hover:border-coral transition-colors" src="ellamonlogo.jpg" alt="Ellamon Beauty Salon Logo">
+                        <span class="font-serif font-semibold text-xl tracking-wide text-deepBrown">Ellamon</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-deepBrown/80 hover:text-coral transition-colors font-medium">About</a>
+                    <a href="#services" class="text-deepBrown/80 hover:text-coral transition-colors font-medium">Services</a>
+                    <a href="#gallery" class="text-deepBrown/80 hover:text-coral transition-colors font-medium">Gallery</a>
+                    <a href="#location" class="text-deepBrown/80 hover:text-coral transition-colors font-medium">Location</a>
+                    <a href="https://wa.me/2347037573625" target="_blank" rel="noopener noreferrer" class="bg-coral hover:bg-coralHover text-white px-5 py-2.5 rounded-full font-medium transition-all shadow-md hover:shadow-lg flex items-center gap-2">
+                        <i class="fab fa-whatsapp text-lg"></i> Book Now
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-deepBrown hover:text-coral focus:outline-none p-2">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream border-t border-coral/10 absolute w-full shadow-soft">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#about" class="block px-3 py-3 rounded-md text-base font-medium text-deepBrown hover:bg-coralLight hover:text-coral">About</a>
+                <a href="#services" class="block px-3 py-3 rounded-md text-base font-medium text-deepBrown hover:bg-coralLight hover:text-coral">Services</a>
+                <a href="#gallery" class="block px-3 py-3 rounded-md text-base font-medium text-deepBrown hover:bg-coralLight hover:text-coral">Gallery</a>
+                <a href="#location" class="block px-3 py-3 rounded-md text-base font-medium text-deepBrown hover:bg-coralLight hover:text-coral">Location</a>
+                <a href="https://wa.me/2347037573625" target="_blank" rel="noopener noreferrer" class="block px-3 py-3 mt-4 text-center rounded-md text-base font-medium bg-coral text-white hover:bg-coralHover shadow-sm flex items-center justify-center gap-2">
+                    <i class="fab fa-whatsapp"></i> Book on WhatsApp
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            
+            <!-- Decorative background elements -->
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 rounded-full bg-coralLight opacity-50 blur-3xl z-0"></div>
+            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-coralLight opacity-50 blur-3xl z-0"></div>
+
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <div class="order-2 lg:order-1 fade-in-section">
+                    <div class="inline-block px-4 py-1.5 rounded-full bg-coralLight text-coral text-sm font-semibold tracking-wide mb-6">
+                        Welcome to Ellamon
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-deepBrown leading-tight mb-6">
+                        Your Beauty,<br> <span class="text-coral italic font-light">Our Craft</span>
+                    </h1>
+                    <p class="text-lg text-deepBrown/80 mb-8 max-w-lg leading-relaxed">
+                        Unisex Beauty Salon & Spa — Hair, Nails, Skin & More, located in the heart of Wuye, Abuja. We bring out the best in you.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://wa.me/2347037573625" target="_blank" rel="noopener noreferrer" class="bg-coral hover:bg-coralHover text-white px-8 py-3.5 rounded-full font-medium transition-all shadow-md hover:shadow-lg text-center flex items-center justify-center gap-2">
+                            <i class="fab fa-whatsapp text-xl"></i> Book on WhatsApp
+                        </a>
+                        <a href="#services" class="bg-white border-2 border-deepBrown/10 hover:border-coral text-deepBrown hover:text-coral px-8 py-3.5 rounded-full font-medium transition-all text-center">
+                            View Services
+                        </a>
+                    </div>
+                </div>
+
+                <div class="order-1 lg:order-2 flex justify-center lg:justify-end fade-in-section relative">
+                    <!-- Image container with decorative border -->
+                    <div class="relative w-full max-w-md aspect-square md:aspect-[4/5] rounded-[2rem] p-3 bg-white shadow-soft transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                        <img src="ellamonbraids.jpg" alt="Beautifully styled braids at Ellamon" class="w-full h-full object-cover rounded-[1.5rem]" onerror="this.src='https://placehold.co/600x800/E8827C/FDFBF7?text=Beautiful+Braids'">
+                        
+                        <!-- Floating badge -->
+                        <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-soft flex items-center gap-4 transform -rotate-3 animate-bounce" style="animation-duration: 3s;">
+                            <div class="bg-coralLight text-coral p-3 rounded-full">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold text-deepBrown">Expert Styling</p>
+                                <p class="text-xs text-deepBrown/70">For everyone</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center fade-in-section">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-deepBrown mb-6">About Our Salon</h2>
+                <div class="w-16 h-1 bg-coral mx-auto mb-8 rounded-full"></div>
+                <p class="text-lg text-deepBrown/80 leading-relaxed mb-6">
+                    Ellamon is a premier full-service unisex salon and spa dedicated to providing top-tier beauty experiences. We cater to the whole family with a comprehensive menu that includes professional plaiting, barbing, hair treatments, pedicure & manicure, facials, expert nail tech services, relaxing massages, hair installation, waxing, body scrubs, and intricate henna artistry.
+                </p>
+                <p class="text-lg text-deepBrown/80 leading-relaxed">
+                    Our team of skilled, experienced stylists and therapists are passionate about their craft, ensuring every client leaves feeling refreshed and confident. We also offer professional training programs for aspiring beauty experts.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-20 bg-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 fade-in-section">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-deepBrown mb-4">Real Results, Real Clients</h2>
+                <p class="text-deepBrown/70">A glimpse into our daily craft at Ellamon.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Gallery Item 1 -->
+                <div class="fade-in-section bg-white rounded-3xl p-3 shadow-soft group hover:-translate-y-2 transition-transform duration-300">
+                    <div class="relative overflow-hidden rounded-2xl aspect-square mb-4">
+                        <img src="ellamonkidscut.jpg" alt="Sharp kids haircut" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/500x500/E8827C/FDFBF7?text=Kids+Cuts'">
+                    </div>
+                    <h3 class="text-xl font-serif font-semibold text-deepBrown text-center mb-2">Kids Cuts</h3>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="fade-in-section bg-white rounded-3xl p-3 shadow-soft group hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 100ms;">
+                    <div class="relative overflow-hidden rounded-2xl aspect-square mb-4">
+                        <img src="ellamonbraids.jpg" alt="Intricate braids styling" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/500x500/E8827C/FDFBF7?text=Braids'">
+                    </div>
+                    <h3 class="text-xl font-serif font-semibold text-deepBrown text-center mb-2">Braids & Styling</h3>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="fade-in-section bg-white rounded-3xl p-3 shadow-soft group hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 200ms;">
+                    <div class="relative overflow-hidden rounded-2xl aspect-square mb-4">
+                        <img src="ellamonpedicure.jpg" alt="Relaxing Spa Pedicure" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/500x500/E8827C/FDFBF7?text=Pedicure'">
+                    </div>
+                    <h3 class="text-xl font-serif font-semibold text-deepBrown text-center mb-2">Spa Pedicure</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-section">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-deepBrown mb-4">Our Services</h2>
+                <div class="w-16 h-1 bg-coral mx-auto mb-6 rounded-full"></div>
+                <p class="text-deepBrown/70 max-w-2xl mx-auto">Comprehensive beauty and wellness treatments tailored for everyone.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Hair Services -->
+                <div class="bg-cream rounded-3xl p-6 shadow-soft fade-in-section hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-coralLight text-coral rounded-2xl flex items-center justify-center text-xl mb-6">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-deepBrown mb-4 border-b border-coral/20 pb-2">Hair</h3>
+                    <ul class="space-y-2 text-sm text-deepBrown/80">
+                        <li class="flex items-start"><i class="fas fa-check text-coral text-xs mt-1 mr-2"></i>Hairdresser & Styling</li>
+                        <li class="flex items-start"><i class="fas fa-check text-coral text-xs mt-1 mr-2"></i>Hair Colouring</li>
+                        <li class="flex items-start"><i class="fas fa-check text-coral text-xs mt-1 mr-2"></i>Beard Trim & Children's Cuts</li>
+                        <li class="flex items-start"><i class="fas fa-check text-coral text-xs mt-1 mr-2"></i>Blowdry</li>
+                        <li class="flex items-start"><i class="fas fa-check text-coral text-xs mt-1 mr-2"></i>Body Waxing</li>
+                        <li class="flex items-start"><i class="fas fa-check text-coral text-xs mt-1 mr-2"></i>Braids (Box, Twist, Dreadlocks)</li>
+                        <li class="flex items-start"><i class="fas fa-check text-coral text-xs mt-1 mr-2"></i>Brazilian Straightening</li>
+                        <li class="flex items-start"><i class="fas fa-check text-coral text-xs mt-1 mr-2"></i>Extensions & Installation</li>
+                        <li class="flex items-start"><i class="fas fa-check text-coral text-xs mt-1 mr-2"></i>Glazing, Glossing & Hydration</li>
+                        <li class="flex items-start"><i class="fas fa-check text-coral text-xs mt-1 mr-2"></i>Hair Regrowth Treatments</li>
+                        <li class="flex items-start"><i class="fas fa-check text-coral text-xs mt-1 mr-2"></i>Revamping</li>
+                    </ul>
+                </div>
+
+                <!-- Nails & Beauty -->
+                <div class="bg-cream rounded-3xl p-6 shadow-soft fade-in-section hover:shadow-md transition-shadow" style="transition-delay: 100ms;">
+                    <div class="w-12 h-12 bg-coralLight text-coral rounded-2xl flex items-center justify-center text-xl mb-6">
+                        <i class="fas fa-hand-sparkles"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-deepBrown mb-4 border-b border-coral/20 pb-2">Nails & Beauty</h3>
+                    <ul class="space-y-3 text-sm text-deepBrown/80">
+                        <li class="flex items-center"><i class="fas fa-circle text-[8px] text-coral mr-3"></i>Manicure</li>
+                        <li class="flex items-center"><i class="fas fa-circle text-[8px] text-coral mr-3"></i>Pedicure</li>
+                        <li class="flex items-center"><i class="fas fa-circle text-[8px] text-coral mr-3"></i>Nail Tech Services</li>
+                        <li class="flex items-center"><i class="fas fa-circle text-[8px] text-coral mr-3"></i>Eyebrow Threading</li>
+                    </ul>
+                </div>
+
+                <!-- Skin & Body -->
+                <div class="bg-cream rounded-3xl p-6 shadow-soft fade-in-section hover:shadow-md transition-shadow" style="transition-delay: 200ms;">
+                    <div class="w-12 h-12 bg-coralLight text-coral rounded-2xl flex items-center justify-center text-xl mb-6">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-deepBrown mb-4 border-b border-coral/20 pb-2">Skin & Body</h3>
+                    <ul class="space-y-3 text-sm text-deepBrown/80">
+                        <li class="flex items-center"><i class="fas fa-circle text-[8px] text-coral mr-3"></i>Facials</li>
+                        <li class="flex items-center"><i class="fas fa-circle text-[8px] text-coral mr-3"></i>Massage</li>
+                        <li class="flex items-center"><i class="fas fa-circle text-[8px] text-coral mr-3"></i>Body Scrub (Dilka)</li>
+                    </ul>
+                </div>
+
+                <!-- Specialty -->
+                <div class="bg-cream rounded-3xl p-6 shadow-soft fade-in-section hover:shadow-md transition-shadow" style="transition-delay: 300ms;">
+                    <div class="w-12 h-12 bg-coralLight text-coral rounded-2xl flex items-center justify-center text-xl mb-6">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-deepBrown mb-4 border-b border-coral/20 pb-2">Specialty</h3>
+                    <ul class="space-y-3 text-sm text-deepBrown/80">
+                        <li class="flex items-center"><i class="fas fa-circle text-[8px] text-coral mr-3"></i>Henna (Lanli)</li>
+                        <li class="flex items-center"><i class="fas fa-circle text-[8px] text-coral mr-3"></i>Professional Training Programs</li>
+                    </ul>
+                    
+                    <div class="mt-8 pt-6 border-t border-coral/20">
+                         <a href="https://wa.me/2347037573625" target="_blank" rel="noopener noreferrer" class="text-coral hover:text-coralHover font-medium text-sm flex items-center group">
+                            Inquire about prices <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-coralLight/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+             <div class="text-center mb-12 fade-in-section">
+                <h2 class="text-3xl font-serif font-bold text-deepBrown mb-2">Why Choose Ellamon</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Feature 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm text-center fade-in-section">
+                    <div class="w-10 h-10 mx-auto bg-cream rounded-full flex items-center justify-center text-coral mb-4">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4 class="font-serif font-bold text-deepBrown mb-2">Unisex</h4>
+                    <p class="text-sm text-deepBrown/70">Services for the whole family, men, women, and children.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm text-center fade-in-section" style="transition-delay: 100ms;">
+                    <div class="w-10 h-10 mx-auto bg-cream rounded-full flex items-center justify-center text-coral mb-4">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h4 class="font-serif font-bold text-deepBrown mb-2">Skilled Stylists</h4>
+                    <p class="text-sm text-deepBrown/70">Experienced professionals passionate about their craft.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm text-center fade-in-section" style="transition-delay: 200ms;">
+                    <div class="w-10 h-10 mx-auto bg-cream rounded-full flex items-center justify-center text-coral mb-4">
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <h4 class="font-serif font-bold text-deepBrown mb-2">Full-Service Spa</h4>
+                    <p class="text-sm text-deepBrown/70">From hair to toes, a complete relaxation experience.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="bg-white p-6 rounded-2xl shadow-sm text-center fade-in-section" style="transition-delay: 300ms;">
+                    <div class="w-10 h-10 mx-auto bg-cream rounded-full flex items-center justify-center text-coral mb-4">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h4 class="font-serif font-bold text-deepBrown mb-2">Training Available</h4>
+                    <p class="text-sm text-deepBrown/70">Professional courses for aspiring beauty experts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="location" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-deepBrown rounded-[2.5rem] overflow-hidden shadow-soft fade-in-section">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    
+                    <div class="p-10 lg:p-16 flex flex-col justify-center relative">
+                        <!-- Decorative circle -->
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-bl-full z-0"></div>
+                        
+                        <div class="relative z-10">
+                            <h2 class="text-3xl md:text-4xl font-serif font-bold text-cream mb-6">Visit Us</h2>
+                            
+                            <div class="space-y-6 mb-8">
+                                <div class="flex items-start">
+                                    <i class="fas fa-map-marker-alt text-coral text-xl mt-1 mr-4 w-6 text-center"></i>
+                                    <div>
+                                        <h4 class="text-cream font-semibold mb-1">Location</h4>
+                                        <p class="text-cream/80 text-sm leading-relaxed">
+                                            Administrative Block,<br>
+                                            Barumark Estate Wuye,<br>
+                                            Acacia Estate, FCT, Abuja
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <i class="far fa-clock text-coral text-xl mt-1 mr-4 w-6 text-center"></i>
+                                    <div>
+                                        <h4 class="text-cream font-semibold mb-1">Hours</h4>
+                                        <p class="text-cream/80 text-sm">Mon - Sat: 9:00 AM onwards</p>
+                                        <p class="text-cream/60 text-xs mt-1 italic">Contact us to confirm closing times</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <a href="https://www.google.com/maps/search/?api=1&query=Ellamon+Beauty+Salon+Spa+Wuye+Abuja" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-cream text-deepBrown hover:bg-coral hover:text-white px-6 py-3 rounded-full font-medium transition-colors shadow-sm">
+                                <i class="fas fa-external-link-alt"></i> Open in Google Maps
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Map Graphic / Image Area (Using a styled container since iframe might be tricky in some envs) -->
+                    <div class="bg-cream min-h-[300px] relative">
+                         <!-- Fallback map aesthetic -->
+                         <div class="absolute inset-0 bg-coralLight opacity-20" style="background-image: radial-gradient(#E8827C 1px, transparent 1px); background-size: 20px 20px;"></div>
+                         <div class="absolute inset-0 flex items-center justify-center p-8">
+                             <div class="bg-white p-6 rounded-2xl shadow-soft text-center max-w-sm">
+                                 <i class="fas fa-map-pin text-4xl text-coral mb-4"></i>
+                                 <h3 class="font-serif font-bold text-deepBrown text-xl mb-2">Find us in Wuye</h3>
+                                 <p class="text-sm text-deepBrown/70 mb-4">Easily accessible in the heart of Abuja.</p>
+                                 <a href="https://www.google.com/maps/search/?api=1&query=Ellamon+Beauty+Salon+Spa+Wuye+Abuja" target="_blank" rel="noopener noreferrer" class="text-coral hover:text-coralHover text-sm font-semibold underline">Get Directions</a>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-cream pt-16 pb-8 border-t border-coral/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col items-center justify-center text-center">
+                
+                <img src="ellamonlogo.jpg" alt="Ellamon Logo" class="w-20 h-20 rounded-full object-cover shadow-sm mb-6 border-2 border-white">
+                
+                <h2 class="text-2xl font-serif font-bold text-deepBrown mb-6">Ellamon Beauty Salon & Spa</h2>
+                
+                <div class="flex space-x-4 mb-8">
+                    <a href="https://wa.me/2347037573625" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-coral hover:bg-coral hover:text-white transition-colors shadow-sm" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/ellamon_beauty_salon" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-coral hover:bg-coral hover:text-white transition-colors shadow-sm" aria-label="Instagram">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61585809220341" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-coral hover:bg-coral hover:text-white transition-colors shadow-sm" aria-label="Facebook">
+                        <i class="fab fa-facebook-f text-xl"></i>
+                    </a>
+                </div>
+                
+                <div class="w-full max-w-md h-px bg-coral/20 mb-8"></div>
+                
+                <p class="text-deepBrown/80 italic font-serif text-lg mb-2">"Your Beauty, Our Craft"</p>
+                <p class="text-deepBrown/50 text-sm">
+                    &copy; <span id="year"></span> Ellamon Beauty Salon & Spa. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/2347037573625" target="_blank" rel="noopener noreferrer" class="whatsapp-float fixed bottom-6 right-6 w-14 h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all z-50 focus:outline-none" aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <script>
+        
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = btn.querySelector('i');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            if(menu.classList.contains('hidden')){
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-soft');
+                navbar.classList.replace('bg-cream/90', 'bg-white/95');
+            } else {
+                navbar.classList.remove('shadow-soft');
+                navbar.classList.replace('bg-white/95', 'bg-cream/90');
+            }
+        });
+
+        // Intersection Observer for Fade-in animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    // Optional: Stop observing once animated in
+                    // observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach((section) => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
