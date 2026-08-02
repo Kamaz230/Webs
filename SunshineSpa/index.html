@@ -226,13 +226,8 @@
                         <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-spa-gold z-0"></div>
                         
                         <!-- Using an elegant placeholder since we only have logo and reception images -->
-                        <div class="relative z-10 aspect-[4/5] bg-spa-brown/5 rounded-sm overflow-hidden flex items-center justify-center p-8">
-                           <div class="text-center opacity-40">
-                               <i class="fas fa-leaf text-6xl text-spa-gold mb-4"></i>
-                               <p class="font-serif text-xl italic">The Art of Healing</p>
-                           </div>
-                           <!-- Decorative subtle pattern overlay -->
-                           <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#C9A45C 1px, transparent 1px); background-size: 20px 20px;"></div>
+                        <div class="relative z-10 aspect-[4/5] bg-spa-brown/5 rounded-sm overflow-hidden flex items-center justify-center">
+                           <img src="sunshinehealing.jpg" alt="Traditional Thai Massage Treatment" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
@@ -496,14 +491,12 @@
                     </div>
                 </div>
                 
-                <div class="h-96 bg-gray-800 rounded-sm overflow-hidden relative reveal delay-100 border border-spa-gold/20">
-                    <!-- Placeholder for embedded map -->
-                    <div class="absolute inset-0 flex flex-col items-center justify-center text-gray-500 bg-gray-900">
-                        <i class="fas fa-map text-5xl mb-4 text-spa-gold/40"></i>
-                        <p class="font-serif text-xl tracking-wider text-gray-400">Interactive Map View</p>
-                        <p class="text-sm mt-2 font-light">The Palms Hotel, CBD, Abuja</p>
-                    </div>
-                    <!-- Actual map iframe would go here in production -->
+                <div class="h-96 bg-gray-800 rounded-sm overflow-hidden relative reveal delay-100 border border-spa-gold/20 flex items-center justify-center">
+                    <a href="https://maps.google.com/?q=The+Palms+Hotel,+Central+Business+District,+Abuja" target="_blank" class="flex flex-col items-center text-spa-gold/80 hover:text-spa-gold transition-colors duration-300 p-8 text-center group">
+                        <i class="fas fa-map-marked-alt text-5xl mb-4 group-hover:scale-110 transition-transform duration-300"></i>
+                        <span class="font-serif text-2xl tracking-wider mb-2">Open in Google Maps</span>
+                        <span class="text-gray-400 font-light text-sm">Get directions to our sanctuary</span>
+                    </a>
                 </div>
             </div>
         </div>
