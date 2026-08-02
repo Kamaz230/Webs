@@ -1,1 +1,613 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sun Shine Thai Spa | Luxury Wellness in Abuja</title>
+    
+    <!-- Google Fonts: Cormorant Garamond (Serif for headings) and Inter (Sans-serif for body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        spa: {
+                            cream: '#FAFAF7', // Warm ivory/cream background
+                            gold: '#C9A45C',  // Warm gold accent matching logo
+                            goldLight: '#E8D5B0',
+                            goldDark: '#A68444',
+                            brown: '#3A3226', // Deep brown/charcoal for text
+                            dark: '#1C1915'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(to right, rgba(250, 250, 247, 0.9), rgba(250, 250, 247, 0.4)), url('sunshinereception.jpg')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles for animations and specifics not easily handled by pure utility classes */
+        body {
+            background-color: #FAFAF7;
+            color: #3A3226;
+        }
+
+        /* Smooth reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.2s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        /* Elegant button hover effect */
+        .btn-gold {
+            background-color: #C9A45C;
+            color: #fff;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .btn-gold::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #A68444;
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .btn-gold:hover::before {
+            transform: scaleX(1);
+        }
+
+        .btn-outline {
+            border: 1px solid #C9A45C;
+            color: #C9A45C;
+            transition: all 0.4s ease;
+        }
+        .btn-outline:hover {
+            background-color: #C9A45C;
+            color: #fff;
+        }
+
+        /* Subtle glowing border for promo */
+        .glow-border {
+            box-shadow: 0 0 20px rgba(201, 164, 92, 0.15);
+            border: 1px solid rgba(201, 164, 92, 0.4);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FAFAF7; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C9A45C; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #A68444; 
+        }
+
+        /* Table styling */
+        .pricing-table tr {
+            border-bottom: 1px solid rgba(201, 164, 92, 0.2);
+            transition: background-color 0.3s ease;
+        }
+        .pricing-table tr:hover {
+            background-color: rgba(201, 164, 92, 0.05);
+        }
+        .pricing-table td, .pricing-table th {
+            padding: 1rem;
+            vertical-align: middle;
+        }
+        
+        /* Mobile menu transition */
+        #mobile-menu {
+            transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        #mobile-menu.open {
+            max-height: 400px; /* Arbitrary large height to allow content */
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-spa-gold selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-spa-cream/95 backdrop-blur-md border-b border-spa-gold/20 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="block">
+                        <img class="h-16 w-auto object-contain" src="sunshinelogo.jpg" alt="The Sun Shine Thai Spa Logo">
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="font-serif text-lg text-spa-brown hover:text-spa-gold transition-colors duration-300">About</a>
+                    <a href="#services" class="font-serif text-lg text-spa-brown hover:text-spa-gold transition-colors duration-300">Services & Pricing</a>
+                    <a href="#location" class="font-serif text-lg text-spa-brown hover:text-spa-gold transition-colors duration-300">Location</a>
+                    <a href="https://wa.me/2347025289378" target="_blank" class="btn-gold px-6 py-2.5 rounded-sm font-medium tracking-wide flex items-center gap-2 text-sm shadow-sm">
+                        <i class="fab fa-whatsapp text-lg"></i> Book via WhatsApp
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-spa-brown hover:text-spa-gold focus:outline-none p-2">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-spa-cream border-b border-spa-gold/20 shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col items-center">
+                <a href="#about" class="block px-3 py-3 font-serif text-xl text-spa-brown w-full text-center hover:bg-spa-gold/10 rounded mobile-link">About</a>
+                <a href="#services" class="block px-3 py-3 font-serif text-xl text-spa-brown w-full text-center hover:bg-spa-gold/10 rounded mobile-link">Services & Pricing</a>
+                <a href="#location" class="block px-3 py-3 font-serif text-xl text-spa-brown w-full text-center hover:bg-spa-gold/10 rounded mobile-link">Location</a>
+                <a href="https://wa.me/2347025289378" target="_blank" class="w-full mt-4 btn-gold px-6 py-3 rounded-sm font-medium flex justify-center items-center gap-2 shadow-md">
+                    <i class="fab fa-whatsapp text-xl"></i> Book via WhatsApp
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-24 min-h-[90vh] flex items-center bg-cover bg-center bg-no-repeat" style="background-image: url('sunshinereception.jpg');">
+        <!-- Elegant dark overlay for text readability -->
+        <div class="absolute inset-0 bg-gradient-to-r from-spa-cream via-spa-cream/90 to-spa-cream/40 md:to-transparent"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-20">
+            <div class="max-w-2xl reveal">
+                <p class="text-spa-gold font-medium tracking-[0.2em] uppercase text-sm mb-4 pl-1">Welcome to Tranquility</p>
+                <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-medium text-spa-dark leading-tight mb-6">
+                    Find Your <span class="italic text-spa-gold">Stillness</span>
+                </h1>
+                <p class="text-lg md:text-xl text-spa-brown/80 font-light mb-10 leading-relaxed">
+                    Authentic Thai Massage, Deep Tissue, and Holistic Therapies — Inside The Palms Hotel, Central Business District, Abuja.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#services" class="btn-outline px-8 py-3.5 rounded-sm font-medium tracking-wide text-center uppercase text-sm">
+                        View Treatments
+                    </a>
+                    <a href="https://wa.me/2347025289378" target="_blank" class="btn-gold px-8 py-3.5 rounded-sm font-medium tracking-wide flex justify-center items-center gap-2 uppercase text-sm shadow-md">
+                        <i class="fab fa-whatsapp text-lg"></i> Book on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-spa-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="order-2 md:order-1 reveal">
+                    <div class="relative">
+                        <!-- Decorative elements behind image placeholder -->
+                        <div class="absolute -top-4 -left-4 w-24 h-24 border-t-2 border-l-2 border-spa-gold z-0"></div>
+                        <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-2 border-r-2 border-spa-gold z-0"></div>
+                        
+                        <!-- Using an elegant placeholder since we only have logo and reception images -->
+                        <div class="relative z-10 aspect-[4/5] bg-spa-brown/5 rounded-sm overflow-hidden flex items-center justify-center p-8">
+                           <div class="text-center opacity-40">
+                               <i class="fas fa-leaf text-6xl text-spa-gold mb-4"></i>
+                               <p class="font-serif text-xl italic">The Art of Healing</p>
+                           </div>
+                           <!-- Decorative subtle pattern overlay -->
+                           <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#C9A45C 1px, transparent 1px); background-size: 20px 20px;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-1 md:order-2 reveal delay-100">
+                    <h2 class="font-serif text-4xl md:text-5xl text-spa-dark mb-6">Authentic Thai Healing Tradition</h2>
+                    <div class="w-16 h-0.5 bg-spa-gold mb-8"></div>
+                    <p class="text-spa-brown/80 leading-relaxed mb-6 font-light text-lg">
+                        At The Sun Shine Thai Spa, we bring the ancient healing traditions of Thailand to the heart of Abuja. Our sanctuary is designed to help you disconnect from the bustle of the city and reconnect with your inner peace.
+                    </p>
+                    <p class="text-spa-brown/80 leading-relaxed mb-8 font-light text-lg">
+                        Our formally trained therapists are masters in their craft, offering a curated selection of aromatherapy-based treatments. Whether you seek the deep relief of a <span class="font-medium text-spa-brown">Traditional Thai Massage</span>, the luxurious warmth of a <span class="font-medium text-spa-brown">Hot Stone Therapy</span>, an invigorating <span class="font-medium text-spa-brown">Thai Herb Body Scrub (Hammam)</span>, or a restorative <span class="font-medium text-spa-brown">Couples Massage</span>, every session is tailored to your body's unique needs. Emphasizing authenticity and professional care, we ensure a holistic wellness experience that rejuvenates mind, body, and spirit.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mt-8 pt-8 border-t border-spa-gold/20">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check text-spa-gold mt-1"></i>
+                            <span class="text-spa-dark font-medium text-sm uppercase tracking-wider">Formally Trained</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-check text-spa-gold mt-1"></i>
+                            <span class="text-spa-dark font-medium text-sm uppercase tracking-wider">Aromatherapy Based</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Promo Section -->
+    <section class="py-12 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="glow-border bg-spa-cream p-8 md:p-12 rounded-lg text-center relative overflow-hidden">
+                <!-- Decorative background icon -->
+                <i class="fas fa-sun absolute -right-10 -top-10 text-9xl text-spa-gold/5 transform rotate-45"></i>
+                
+                <p class="text-spa-gold font-bold tracking-widest uppercase text-sm mb-3">Exclusive Offer</p>
+                <h3 class="font-serif text-3xl md:text-4xl text-spa-dark mb-4">Loyalty Special</h3>
+                <p class="text-xl text-spa-brown mb-8 font-light">
+                    Book <span class="font-semibold">5 sessions</span> and receive your <span class="font-semibold">6th session</span> at <span class="italic text-spa-gold">half price</span>.
+                </p>
+                <a href="https://wa.me/2347025289378?text=I'm%20interested%20in%20the%20Loyalty%20Special!" target="_blank" class="inline-flex btn-gold px-6 py-2.5 rounded-sm font-medium text-sm uppercase tracking-wider items-center gap-2 shadow-sm">
+                    <i class="fab fa-whatsapp text-lg"></i> Claim Offer Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services & Pricing Section -->
+    <section id="services" class="py-24 bg-spa-cream">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-serif text-4xl md:text-5xl text-spa-dark mb-4">Treatment Menu</h2>
+                <div class="w-16 h-0.5 bg-spa-gold mx-auto mb-6"></div>
+                <p class="text-spa-brown/70 font-light max-w-2xl mx-auto">
+                    A curated selection of authentic therapies designed to restore balance and vitality.
+                </p>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-sm border border-spa-gold/10 overflow-hidden reveal delay-100">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left pricing-table whitespace-nowrap">
+                        <thead>
+                            <tr class="bg-spa-cream/50 text-spa-dark font-serif text-lg">
+                                <th class="w-2/5 min-w-[250px]">Service</th>
+                                <th class="text-center">30 min</th>
+                                <th class="text-center">60 min</th>
+                                <th class="text-center">90 min</th>
+                                <th class="text-center">120 min</th>
+                            </tr>
+                        </thead>
+                        <tbody class="font-light text-spa-brown">
+                            <tr>
+                                <td class="font-medium">
+                                    The Sun Shine Signature
+                                    <div class="text-xs text-spa-brown/60 font-light mt-1">Deep tissue, Thai & reflexology combo</div>
+                                </td>
+                                <td class="text-center text-spa-brown/40">-</td>
+                                <td class="text-center text-spa-brown/40">-</td>
+                                <td class="text-center text-spa-brown/40">-</td>
+                                <td class="text-center font-medium">₦72,000</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Traditional Thai Massage</td>
+                                <td class="text-center text-spa-brown/40">-</td>
+                                <td class="text-center font-medium">₦50,000</td>
+                                <td class="text-center font-medium">₦70,000</td>
+                                <td class="text-center text-spa-brown/40">-</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Herbal Compress Massage</td>
+                                <td class="text-center text-spa-brown/40">-</td>
+                                <td class="text-center text-spa-brown/40">-</td>
+                                <td class="text-center font-medium">₦55,000</td>
+                                <td class="text-center font-medium">₦75,000</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Swedish Oil Massage</td>
+                                <td class="text-center font-medium">₦39,000</td>
+                                <td class="text-center font-medium">₦49,000</td>
+                                <td class="text-center font-medium">₦69,000</td>
+                                <td class="text-center text-spa-brown/40">-</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Deep Tissue Massage</td>
+                                <td class="text-center font-medium">₦40,000</td>
+                                <td class="text-center font-medium">₦50,000</td>
+                                <td class="text-center font-medium">₦70,000</td>
+                                <td class="text-center text-spa-brown/40">-</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Hot Stone Massage</td>
+                                <td class="text-center font-medium">₦42,000</td>
+                                <td class="text-center font-medium">₦52,000</td>
+                                <td class="text-center font-medium">₦72,000</td>
+                                <td class="text-center text-spa-brown/40">-</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Aromatherapy Massage</td>
+                                <td class="text-center font-medium">₦40,000</td>
+                                <td class="text-center font-medium">₦50,000</td>
+                                <td class="text-center font-medium">₦70,000</td>
+                                <td class="text-center text-spa-brown/40">-</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Reflexology Massage</td>
+                                <td class="text-center font-medium">₦25,000</td>
+                                <td class="text-center font-medium">₦40,000</td>
+                                <td class="text-center text-spa-brown/40">-</td>
+                                <td class="text-center text-spa-brown/40">-</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Back and Neck Massage</td>
+                                <td class="text-center font-medium">₦25,000</td>
+                                <td class="text-center font-medium">₦40,000</td>
+                                <td class="text-center text-spa-brown/40">-</td>
+                                <td class="text-center text-spa-brown/40">-</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Thai Herb Body Scrub</td>
+                                <td class="text-center text-spa-brown/40">-</td>
+                                <td class="text-center text-spa-brown/40">-</td>
+                                <td class="text-center font-medium">₦40,000</td>
+                                <td class="text-center text-spa-brown/40">-</td>
+                            </tr>
+                            <tr>
+                                <td class="font-medium">Hammam</td>
+                                <td class="text-center text-spa-brown/40">-</td>
+                                <td class="text-center text-spa-brown/40">-</td>
+                                <td class="text-center font-medium">₦50,000</td>
+                                <td class="text-center text-spa-brown/40">-</td>
+                            </tr>
+                            <tr class="bg-spa-gold/5">
+                                <td class="font-medium text-spa-dark">
+                                    Home/Room Service
+                                    <div class="text-xs text-spa-brown/70 font-light mt-1">Choice of Signature, Thai, Deep Tissue, or Swedish</div>
+                                </td>
+                                <td class="text-center text-spa-brown/40">-</td>
+                                <td class="text-center font-medium text-spa-dark">₦50,000</td>
+                                <td class="text-center font-medium text-spa-dark">₦70,000</td>
+                                <td class="text-center font-medium text-spa-dark">₦95,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <p class="text-center text-sm text-spa-brown/60 mt-6 font-light italic reveal delay-200">
+                Prices subject to change. Contact us to confirm current rates before booking.
+            </p>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="font-serif text-3xl md:text-4xl text-spa-dark mb-4">The Sun Shine Experience</h2>
+                <div class="w-12 h-0.5 bg-spa-gold mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="text-center p-6 rounded-lg bg-spa-cream/50 hover:bg-spa-cream transition-colors duration-300 border border-transparent hover:border-spa-gold/20 reveal">
+                    <div class="w-16 h-16 mx-auto bg-spa-gold/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-user-md text-2xl text-spa-gold"></i>
+                    </div>
+                    <h3 class="font-serif text-xl text-spa-dark mb-2">Formally Trained Therapists</h3>
+                    <p class="text-spa-brown/70 text-sm font-light">Expert practitioners dedicated to your wellbeing.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="text-center p-6 rounded-lg bg-spa-cream/50 hover:bg-spa-cream transition-colors duration-300 border border-transparent hover:border-spa-gold/20 reveal delay-100">
+                    <div class="w-16 h-16 mx-auto bg-spa-gold/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-spa text-2xl text-spa-gold"></i>
+                    </div>
+                    <h3 class="font-serif text-xl text-spa-dark mb-2">Authentic Thai Techniques</h3>
+                    <p class="text-spa-brown/70 text-sm font-light">Traditional methods passed down through generations.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="text-center p-6 rounded-lg bg-spa-cream/50 hover:bg-spa-cream transition-colors duration-300 border border-transparent hover:border-spa-gold/20 reveal delay-200">
+                    <div class="w-16 h-16 mx-auto bg-spa-gold/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-hotel text-2xl text-spa-gold"></i>
+                    </div>
+                    <h3 class="font-serif text-xl text-spa-dark mb-2">Inside The Palms Hotel</h3>
+                    <p class="text-spa-brown/70 text-sm font-light">A luxurious, secure, and serene environment.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="text-center p-6 rounded-lg bg-spa-cream/50 hover:bg-spa-cream transition-colors duration-300 border border-transparent hover:border-spa-gold/20 reveal delay-300">
+                    <div class="w-16 h-16 mx-auto bg-spa-gold/10 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-car-side text-2xl text-spa-gold"></i>
+                    </div>
+                    <h3 class="font-serif text-xl text-spa-dark mb-2">Home & Room Service</h3>
+                    <p class="text-spa-brown/70 text-sm font-light">Premium relaxation delivered directly to your door.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="py-24 bg-spa-dark text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="reveal">
+                    <h2 class="font-serif text-4xl md:text-5xl text-spa-gold mb-6">Find Your Sanctuary</h2>
+                    <p class="text-gray-300 font-light mb-8 text-lg">
+                        Located in the prestigious Central Business District, offering an oasis of calm amidst the city.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <i class="fas fa-map-marker-alt text-spa-gold text-xl mt-1 w-6 text-center"></i>
+                            <div>
+                                <h4 class="font-serif text-xl mb-1">Address</h4>
+                                <p class="text-gray-400 font-light leading-relaxed">
+                                    Plot 269 Mohammadu Buhari Way,<br>
+                                    Inside The Palms Hotel, Central Business District,<br>
+                                    Opposite Fraser Suites, attached to Tropic Galleria Mall,<br>
+                                    Abuja, Nigeria.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <i class="fas fa-clock text-spa-gold text-xl mt-1 w-6 text-center"></i>
+                            <div>
+                                <h4 class="font-serif text-xl mb-1">Opening Hours</h4>
+                                <p class="text-gray-400 font-light">Daily: 11:00 AM – 11:00 PM</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <i class="fas fa-phone-alt text-spa-gold text-xl mt-1 w-6 text-center"></i>
+                            <div>
+                                <h4 class="font-serif text-xl mb-1">Contact</h4>
+                                <p class="text-gray-400 font-light">0702 528 9378</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="h-96 bg-gray-800 rounded-sm overflow-hidden relative reveal delay-100 border border-spa-gold/20">
+                    <!-- Placeholder for embedded map -->
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-gray-500 bg-gray-900">
+                        <i class="fas fa-map text-5xl mb-4 text-spa-gold/40"></i>
+                        <p class="font-serif text-xl tracking-wider text-gray-400">Interactive Map View</p>
+                        <p class="text-sm mt-2 font-light">The Palms Hotel, CBD, Abuja</p>
+                    </div>
+                    <!-- Actual map iframe would go here in production -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#151310] pt-16 pb-8 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col items-center text-center">
+                <!-- Logo text representation since image background is dark -->
+                <h2 class="font-serif text-3xl text-spa-gold mb-6 tracking-wide">The Sun Shine Thai Spa</h2>
+                
+                <p class="text-gray-400 font-light max-w-md mb-8">
+                    Elevating your wellbeing through authentic Thai traditions and luxurious care.
+                </p>
+
+                <!-- Social & Contact Links -->
+                <div class="flex space-x-6 mb-12">
+                    <a href="https://wa.me/2347025289378" target="_blank" class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-gray-300 hover:bg-spa-gold hover:text-white transition-all duration-300 border border-white/10 hover:border-spa-gold">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                    </a>
+                    <a href="https://instagram.com/thesunshinethaispa" target="_blank" class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-gray-300 hover:bg-spa-gold hover:text-white transition-all duration-300 border border-white/10 hover:border-spa-gold">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=100063895011406" target="_blank" class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-gray-300 hover:bg-spa-gold hover:text-white transition-all duration-300 border border-white/10 hover:border-spa-gold">
+                        <i class="fab fa-facebook-f text-xl"></i>
+                    </a>
+                </div>
+
+                <div class="w-full border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 font-light">
+                    <p>&copy; 2026 The Sun Shine Thai Spa. All rights reserved.</p>
+                    <p class="mt-2 md:mt-0 font-serif italic text-gray-400">Authentic Thai Wellness, Abuja</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 1. Mobile Menu Toggle
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const icon = btn.querySelector('i');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            function toggleMenu() {
+                menu.classList.toggle('open');
+                if (menu.classList.contains('open')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            }
+
+            btn.addEventListener('click', toggleMenu);
+
+            // Close mobile menu when clicking a link
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (menu.classList.contains('open')) {
+                        toggleMenu();
+                    }
+                });
+            });
+
+            // 2. Navbar Scroll Effect (Subtle shrink and shadow)
+            const navbar = document.getElementById('navbar');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('shadow-md', 'py-0');
+                    navbar.classList.remove('py-2');
+                } else {
+                    navbar.classList.remove('shadow-md', 'py-0');
+                    navbar.classList.add('py-2');
+                }
+            });
+
+            // 3. Scroll Reveal Animation using Intersection Observer
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // Optional: Stop observing once revealed
+                        // observer.unobserve(entry.target); 
+                    }
+                });
+            };
+
+            const revealOptions = {
+                threshold: 0.15, // Trigger when 15% of element is visible
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
+
+            revealElements.forEach(el => {
+                revealObserver.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
