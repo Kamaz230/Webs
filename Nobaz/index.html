@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOBAZ | Afro-Centric Fashion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nobaz: {
+                            green: '#1F3327',
+                            gold: '#D4AF37',
+                            light: '#F9F8F6', // Warm off-white
+                            dark: '#111814',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F9F8F6;
+            color: #1F3327;
+        }
+        
+        .img-hover-zoom {
+            overflow: hidden;
+        }
+        
+        .img-hover-zoom img {
+            transition: transform 0.7s ease;
+        }
+        
+        .img-hover-zoom:hover img {
+            transform: scale(1.05);
+        }
+
+        .editorial-border {
+            position: relative;
+        }
+        
+        .editorial-border::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 1px;
+            background-color: #D4AF37;
+        }
+
+        /* Custom scrollbar for a premium feel */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F9F8F6;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1F3327;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
+        }
+        
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            visibility: hidden;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, visibility;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+            visibility: visible;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-nobaz-gold selection:text-white">
+
+    <header class="fixed w-full z-50 bg-nobaz-light/95 backdrop-blur-sm border-b border-nobaz-green/10 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20 md:h-24">
+                <!-- Mobile menu button -->
+                <div class="flex items-center md:hidden">
+                    <button type="button" class="text-nobaz-green hover:text-nobaz-gold focus:outline-none" aria-controls="mobile-menu" aria-expanded="false" id="mobile-menu-btn">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center justify-center md:justify-start w-full md:w-auto absolute left-0 right-0 md:static pointer-events-none md:pointer-events-auto">
+                    <a href="#" class="pointer-events-auto">
+                        <img class="h-12 w-auto md:h-16 rounded-full object-cover shadow-sm border border-nobaz-gold/20" src="nobazlogo.jpg" alt="NOBAZ Logo">
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex space-x-8 lg:space-x-12">
+                    <a href="#collection" class="text-sm tracking-widest uppercase font-medium text-nobaz-green hover:text-nobaz-gold transition-colors duration-300">Collection</a>
+                    <a href="#men" class="text-sm tracking-widest uppercase font-medium text-nobaz-green hover:text-nobaz-gold transition-colors duration-300">Men</a>
+                    <a href="#about" class="text-sm tracking-widest uppercase font-medium text-nobaz-green hover:text-nobaz-gold transition-colors duration-300">About</a>
+                    <a href="#order" class="text-sm tracking-widest uppercase font-medium text-nobaz-green hover:text-nobaz-gold transition-colors duration-300">Order</a>
+                </nav>
+
+                <!-- CTA Button -->
+                <div class="hidden md:flex items-center">
+                    <a href="https://wa.me/2348120488776" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-2.5 border border-nobaz-green text-sm font-medium uppercase tracking-widest text-nobaz-light bg-nobaz-green hover:bg-nobaz-gold hover:border-nobaz-gold transition-all duration-300 shadow-md">
+                        Enquire
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div class="md:hidden hidden bg-nobaz-light border-b border-nobaz-green/10" id="mobile-menu">
+            <div class="px-2 pt-2 pb-6 space-y-1 sm:px-3 text-center">
+                <a href="#collection" class="block px-3 py-3 text-base font-medium tracking-widest uppercase text-nobaz-green hover:text-nobaz-gold hover:bg-nobaz-green/5">Collection</a>
+                <a href="#men" class="block px-3 py-3 text-base font-medium tracking-widest uppercase text-nobaz-green hover:text-nobaz-gold hover:bg-nobaz-green/5">Men</a>
+                <a href="#about" class="block px-3 py-3 text-base font-medium tracking-widest uppercase text-nobaz-green hover:text-nobaz-gold hover:bg-nobaz-green/5">About</a>
+                <a href="#order" class="block px-3 py-3 text-base font-medium tracking-widest uppercase text-nobaz-green hover:text-nobaz-gold hover:bg-nobaz-green/5">Order</a>
+                <a href="https://wa.me/2348120488776" target="_blank" rel="noopener noreferrer" class="block mt-4 mx-4 px-3 py-3 text-base font-medium tracking-widest uppercase text-nobaz-light bg-nobaz-green hover:bg-nobaz-gold transition-colors duration-300">Enquire on WhatsApp</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="relative h-screen min-h-[600px] flex items-center justify-center pt-20">
+            <!-- Hero Background -->
+            <div class="absolute inset-0 w-full h-full">
+                <img src="nobazmodels2.jpg" alt="NOBAZ Fashion Model" class="w-full h-full object-cover object-center" onerror="this.src='https://placehold.co/1920x1080/1F3327/D4AF37?text=NOBAZ+Model'">
+                <div class="absolute inset-0 bg-gradient-to-t from-nobaz-dark/80 via-nobaz-dark/40 to-transparent"></div>
+            </div>
+
+            <!-- Hero Content -->
+            <div class="relative z-10 text-center px-4 max-w-4xl mx-auto animate-fade-in-up">
+                <h1 class="text-4xl sm:text-5xl md:text-7xl font-serif text-nobaz-light mb-6 leading-tight drop-shadow-lg">
+                    Where Ethnicity Meets Contemporary Fashion.
+                </h1>
+                <p class="mt-4 text-lg sm:text-xl text-nobaz-light/90 font-light mb-10 max-w-2xl mx-auto tracking-wide">
+                    Afro-Centric Fashion — Regal, Bold, and Timeless. <br class="hidden sm:block">Worldwide Shipping Available.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="#collection" class="w-full sm:w-auto inline-flex justify-center items-center px-8 py-3.5 border border-transparent text-sm font-medium uppercase tracking-widest text-nobaz-green bg-nobaz-gold hover:bg-nobaz-light transition-colors duration-300 shadow-lg">
+                        View Collection
+                    </a>
+                    <a href="https://wa.me/2348120488776" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex justify-center items-center px-8 py-3.5 border border-nobaz-light text-sm font-medium uppercase tracking-widest text-nobaz-light hover:bg-nobaz-light hover:text-nobaz-green transition-all duration-300 backdrop-blur-sm bg-black/20">
+                        Enquire on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-24 bg-nobaz-light fade-in-section">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-serif text-nobaz-green mb-8 editorial-border pb-4">The House of NOBAZ</h2>
+                <p class="text-lg md:text-xl text-gray-700 font-light leading-relaxed mb-6">
+                    NOBAZ is a bespoke and ready-to-wear fashion house dedicated to blending the rich tapestry of African heritage with sleek, contemporary design. Based in the heart of Wuse 2, Abuja, we craft garments for those who demand standout pieces deeply rooted in culture yet modern in execution.
+                </p>
+                <p class="text-base md:text-lg text-gray-600 font-light leading-relaxed">
+                    With an uncompromising commitment to authentic craftsmanship and premium fabrics, every NOBAZ creation is a statement of elegance. Though born in Nigeria, our designs transcend borders—offering worldwide shipping to bring regal, bold, and timeless fashion to your doorstep.
+                </p>
+            </div>
+        </section>
+
+        <section id="collection" class="py-20 bg-white fade-in-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-serif text-nobaz-green mb-4 editorial-border pb-4">The Collection</h2>
+                    <p class="text-gray-500 uppercase tracking-widest text-sm">Ready-to-Wear & Bespoke</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
+                    <!-- Item 1 -->
+                    <div class="group flex flex-col">
+                        <div class="relative w-full aspect-[3/4] bg-gray-100 img-hover-zoom mb-4">
+                            <img src="nobaz1.jpg" alt="NOBAZ Collection Piece 1" class="absolute inset-0 w-full h-full object-cover object-top" onerror="this.src='https://placehold.co/600x800/1F3327/D4AF37?text=Piece+1'">
+                        </div>
+                        <a href="https://wa.me/2348120488776?text=I'm%20interested%20in%20this%20piece:%20Piece%201" target="_blank" rel="noopener noreferrer" class="text-xs uppercase tracking-widest font-medium text-nobaz-green hover:text-nobaz-gold transition-colors inline-flex items-center">
+                            Enquire About This Piece <span class="ml-2">→</span>
+                        </a>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="group flex flex-col">
+                        <div class="relative w-full aspect-[3/4] bg-gray-100 img-hover-zoom mb-4">
+                            <img src="nobaz2.jpg" alt="NOBAZ Collection Piece 2" class="absolute inset-0 w-full h-full object-cover object-top" onerror="this.src='https://placehold.co/600x800/1F3327/D4AF37?text=Piece+2'">
+                        </div>
+                        <a href="https://wa.me/2348120488776?text=I'm%20interested%20in%20this%20piece:%20Piece%202" target="_blank" rel="noopener noreferrer" class="text-xs uppercase tracking-widest font-medium text-nobaz-green hover:text-nobaz-gold transition-colors inline-flex items-center">
+                            Enquire About This Piece <span class="ml-2">→</span>
+                        </a>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="group flex flex-col">
+                        <div class="relative w-full aspect-[3/4] bg-gray-100 img-hover-zoom mb-4">
+                            <img src="nobaz3.jpg" alt="NOBAZ Collection Piece 3" class="absolute inset-0 w-full h-full object-cover object-top" onerror="this.src='https://placehold.co/600x800/1F3327/D4AF37?text=Piece+3'">
+                        </div>
+                        <a href="https://wa.me/2348120488776?text=I'm%20interested%20in%20this%20piece:%20Piece%203" target="_blank" rel="noopener noreferrer" class="text-xs uppercase tracking-widest font-medium text-nobaz-green hover:text-nobaz-gold transition-colors inline-flex items-center">
+                            Enquire About This Piece <span class="ml-2">→</span>
+                        </a>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="group flex flex-col">
+                        <div class="relative w-full aspect-[3/4] bg-gray-100 img-hover-zoom mb-4">
+                            <img src="nobaz4.jpg" alt="NOBAZ Collection Piece 4" class="absolute inset-0 w-full h-full object-cover object-top" onerror="this.src='https://placehold.co/600x800/1F3327/D4AF37?text=Piece+4'">
+                        </div>
+                        <a href="https://wa.me/2348120488776?text=I'm%20interested%20in%20this%20piece:%20Piece%204" target="_blank" rel="noopener noreferrer" class="text-xs uppercase tracking-widest font-medium text-nobaz-green hover:text-nobaz-gold transition-colors inline-flex items-center">
+                            Enquire About This Piece <span class="ml-2">→</span>
+                        </a>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="group flex flex-col">
+                        <div class="relative w-full aspect-[3/4] bg-gray-100 img-hover-zoom mb-4">
+                            <img src="nobaz5.jpg" alt="NOBAZ Collection Piece 5" class="absolute inset-0 w-full h-full object-cover object-top" onerror="this.src='https://placehold.co/600x800/1F3327/D4AF37?text=Piece+5'">
+                        </div>
+                        <a href="https://wa.me/2348120488776?text=I'm%20interested%20in%20this%20piece:%20Piece%205" target="_blank" rel="noopener noreferrer" class="text-xs uppercase tracking-widest font-medium text-nobaz-green hover:text-nobaz-gold transition-colors inline-flex items-center">
+                            Enquire About This Piece <span class="ml-2">→</span>
+                        </a>
+                    </div>
+
+                    <!-- Item 6 -->
+                    <div class="group flex flex-col">
+                        <div class="relative w-full aspect-[3/4] bg-gray-100 img-hover-zoom mb-4">
+                            <img src="nobazmodels1.jpg" alt="NOBAZ Model 1" class="absolute inset-0 w-full h-full object-cover object-top" onerror="this.src='https://placehold.co/600x800/1F3327/D4AF37?text=Model+1'">
+                        </div>
+                        <a href="https://wa.me/2348120488776?text=I'm%20interested%20in%20this%20piece:%20Model%201" target="_blank" rel="noopener noreferrer" class="text-xs uppercase tracking-widest font-medium text-nobaz-green hover:text-nobaz-gold transition-colors inline-flex items-center">
+                            Enquire About This Piece <span class="ml-2">→</span>
+                        </a>
+                    </div>
+
+                    <!-- Item 7 -->
+                    <div class="group flex flex-col lg:col-span-2">
+                        <div class="relative w-full aspect-[3/4] lg:aspect-[3/2] bg-gray-100 img-hover-zoom mb-4">
+                            <img src="nobazmodels4.jpg" alt="NOBAZ Model 4" class="absolute inset-0 w-full h-full object-cover object-top lg:object-center" onerror="this.src='https://placehold.co/1200x800/1F3327/D4AF37?text=Model+4'">
+                        </div>
+                        <a href="https://wa.me/2348120488776?text=I'm%20interested%20in%20this%20piece:%20Model%204" target="_blank" rel="noopener noreferrer" class="text-xs uppercase tracking-widest font-medium text-nobaz-green hover:text-nobaz-gold transition-colors inline-flex items-center">
+                            Enquire About This Piece <span class="ml-2">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="men" class="py-24 bg-nobaz-green text-nobaz-light fade-in-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="w-full md:w-1/2">
+                        <div class="relative aspect-[3/4] img-hover-zoom shadow-2xl">
+                            <img src="nobazmodels3.jpg" alt="NOBAZ Men Collection" class="absolute inset-0 w-full h-full object-cover object-top" onerror="this.src='https://placehold.co/800x1000/F9F8F6/1F3327?text=NOBAZ+Men'">
+                            <div class="absolute inset-0 border-2 border-nobaz-gold/30 m-4 pointer-events-none"></div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 text-center md:text-left">
+                        <h2 class="text-3xl md:text-5xl font-serif mb-6 text-nobaz-gold">NOBAZ Men</h2>
+                        <p class="text-lg text-nobaz-light/80 font-light mb-8 leading-relaxed">
+                            Distinctive silhouettes tailored for the modern gentleman. Our menswear collection merges traditional African motifs with sharp, contemporary cuts for an aesthetic that commands attention.
+                        </p>
+                        <a href="https://wa.me/2348120488776?text=I'm%20interested%20in%20the%20Men's%20collection" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-8 py-3.5 border border-nobaz-gold text-sm font-medium uppercase tracking-widest text-nobaz-gold hover:bg-nobaz-gold hover:text-nobaz-green transition-all duration-300">
+                            Enquire About Men's Collection
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="order" class="py-20 bg-nobaz-light fade-in-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- How to Order -->
+                <div class="max-w-3xl mx-auto text-center mb-20 bg-white p-8 md:p-12 shadow-sm border border-nobaz-green/5">
+                    <h2 class="text-2xl md:text-3xl font-serif text-nobaz-green mb-6 editorial-border pb-4 inline-block">How to Order</h2>
+                    <p class="text-gray-600 font-light mb-8 leading-relaxed">
+                        Message us on WhatsApp or Instagram with the piece you love. We require a <strong class="text-nobaz-green font-medium">75% deposit</strong> on all orders, with the remaining <strong class="text-nobaz-green font-medium">25% due on pickup or before shipping</strong>.
+                    </p>
+                    <p class="text-sm text-gray-500 italic mb-8">
+                        *No credit or cheques accepted — deposits secure your order and fabric.
+                    </p>
+                    <a href="https://wa.me/2348120488776" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-sm font-medium uppercase tracking-widest text-white bg-[#25D366] hover:bg-[#128C7E] transition-colors duration-300 shadow-md">
+                        <svg class="w-5 h-5 mr-2 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Start Your Order
+                    </a>
+                </div>
+
+                <!-- Features -->
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl md:text-3xl font-serif text-nobaz-green mb-4 editorial-border pb-4">Why Choose NOBAZ</h2>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white p-8 text-center border border-nobaz-green/5 hover:border-nobaz-gold/50 transition-colors duration-300">
+                        <div class="text-nobaz-gold mb-4 flex justify-center">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"></path></svg>
+                        </div>
+                        <h3 class="text-sm uppercase tracking-widest font-medium text-nobaz-green mb-2">Handcrafted</h3>
+                        <p class="text-gray-500 text-sm font-light">Bespoke & Ready-to-Wear</p>
+                    </div>
+                    <div class="bg-white p-8 text-center border border-nobaz-green/5 hover:border-nobaz-gold/50 transition-colors duration-300">
+                        <div class="text-nobaz-gold mb-4 flex justify-center">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="text-sm uppercase tracking-widest font-medium text-nobaz-green mb-2">Worldwide</h3>
+                        <p class="text-gray-500 text-sm font-light">International Shipping Available</p>
+                    </div>
+                    <div class="bg-white p-8 text-center border border-nobaz-green/5 hover:border-nobaz-gold/50 transition-colors duration-300">
+                        <div class="text-nobaz-gold mb-4 flex justify-center">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                        </div>
+                        <h3 class="text-sm uppercase tracking-widest font-medium text-nobaz-green mb-2">Authentic</h3>
+                        <p class="text-gray-500 text-sm font-light">African Craftsmanship</p>
+                    </div>
+                    <div class="bg-white p-8 text-center border border-nobaz-green/5 hover:border-nobaz-gold/50 transition-colors duration-300">
+                        <div class="text-nobaz-gold mb-4 flex justify-center">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                        </div>
+                        <h3 class="text-sm uppercase tracking-widest font-medium text-nobaz-green mb-2">Custom Wear</h3>
+                        <p class="text-gray-500 text-sm font-light">Bridal & Traditional Pieces</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-white fade-in-section border-t border-gray-100">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-serif text-nobaz-green mb-6 editorial-border pb-4 inline-block">Visit Our Showroom</h2>
+                <div class="bg-nobaz-light p-8 md:p-12 mt-8 shadow-sm">
+                    <p class="text-lg md:text-xl text-nobaz-green font-medium mb-2">Downtown Mall</p>
+                    <p class="text-gray-600 font-light mb-6">2 Kampala Street, Wuse 2, Abuja, Nigeria</p>
+                    <p class="text-sm text-gray-500 uppercase tracking-widest mb-8">Opens 10:00 AM</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Nobaz+Fashion+Downtown+Mall+Kampala+Street+Wuse+2+Abuja" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-sm font-medium uppercase tracking-widest text-nobaz-green hover:text-nobaz-gold transition-colors pb-1 border-b border-nobaz-green hover:border-nobaz-gold">
+                        Open in Google Maps <span class="ml-2">↗</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-nobaz-green text-nobaz-light py-16 border-t-[6px] border-nobaz-gold">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+            
+            <img src="nobazlogo.jpg" alt="NOBAZ" class="h-16 w-16 rounded-full border border-nobaz-gold/30 mb-8 object-cover">
+            
+            <div class="flex space-x-8 mb-10">
+                <a href="https://wa.me/2348120488776" target="_blank" rel="noopener noreferrer" class="text-nobaz-light/70 hover:text-nobaz-gold transition-colors">
+                    <span class="sr-only">WhatsApp</span>
+                    <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                </a>
+                <a href="https://instagram.com/nobazfashion" target="_blank" rel="noopener noreferrer" class="text-nobaz-light/70 hover:text-nobaz-gold transition-colors">
+                    <span class="sr-only">Instagram</span>
+                    <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                </a>
+                <a href="https://www.facebook.com/abujafashion" target="_blank" rel="noopener noreferrer" class="text-nobaz-light/70 hover:text-nobaz-gold transition-colors">
+                    <span class="sr-only">Facebook</span>
+                    <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+                </a>
+                <a href="mailto:nobazfashion@gmail.com" class="text-nobaz-light/70 hover:text-nobaz-gold transition-colors">
+                    <span class="sr-only">Email</span>
+                    <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </a>
+            </div>
+
+            <p class="font-serif text-xl md:text-2xl text-nobaz-gold mb-4 text-center">NOBAZ</p>
+            <p class="text-sm tracking-widest uppercase font-light text-nobaz-light/60 text-center">Where Ethnicity Meets Contemporary Fashion</p>
+            
+            <div class="mt-12 pt-8 border-t border-nobaz-light/10 w-full text-center">
+                <p class="text-xs text-nobaz-light/40">&copy; <span id="year"></span> NOBAZ Fashion. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            const expanded = btn.getAttribute('aria-expanded') === 'true' || false;
+            btn.setAttribute('aria-expanded', !expanded);
+        });
+
+        // Close mobile menu on link click
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                btn.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Navbar background on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        // Intersection Observer for scroll fade-in animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-section').forEach((section) => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
